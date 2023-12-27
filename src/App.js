@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+
+import Login from "./components/login";
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div>
+          <AuthContextProvider>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              {/* <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path='/forgot-password' element={<ForgotPassword />} />
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/files" element={<ProtectedRoute><Files /></ProtectedRoute>} />
+              <Route path="/files/:teamName" element={<ProtectedRoute><Files /></ProtectedRoute>} />
+              <Route path="/team" element={<ProtectedRoute><Team /></ProtectedRoute>} />
+              <Route path="/tasks" element={<ProtectedRoute><Tasks /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+              <Route path="/avatar" element={<ProtectedRoute><AvatarUpload /></ProtectedRoute>} />
+              <Route path="/invite" element={<ProtectedRoute><Invite /></ProtectedRoute>} /> */}
+            </Routes>
+          </AuthContextProvider>
+        </div>
+      </div>
+    </Router>
   );
 }
 
